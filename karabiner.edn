@@ -1,4 +1,18 @@
-{:layers {:caps_lock-mode {:key :caps_lock}},
+{:simlayers {:caps_lock-mode {:key :caps_lock}
+             :a_mode {:key :a}
+             :s_mode {:key :s}
+             :o_mode {:key :o}}
+ :profiles {:Default {:default true
+                      :sim     50     ;; simultaneous_threshold_milliseconds (def: 50)
+                         ;; keys need to be pressed within this threshold to be considered simultaneous
+                      :delay   50    ;; to_delayed_action_delay_milliseconds (def: 500)
+                         ;; basically it means time after which the key press is count delayed
+                      :alone   200    ;; to_if_alone_timeout_milliseconds (def: 1000)
+                         ;; hold for 995s and single tap registered; hold for 1005s and seen as modifier
+                      :held    400    ;; to_if_held_down_threshold_milliseconds (def: 500)
+                         ;; key is fired twice when 500 ms is elapsed (otherwise seen as a hold command)
+                      }}
+ :simlayer-threshold 250
  :devices {:anne [{:vendor_id 13 :product_id 61664}]}
  :templates {;..........................................................................................................................
              :open "open \"%s\""
@@ -15,39 +29,45 @@
              :soundOff "afplay /System/Library/PrivateFrameworks/ScreenReader.framework/Versions/A/Resources/Sounds/DrillIn.aiff"}
  :main [{:des "capskey",
          :rules [:caps_lock-mode
-                 [:##j :left_arrow [["s-layer" 0] ["a-layer" 0]]]
-                 [:##l :right_arrow [["s-layer" 0] ["a-layer" 0]]]
-                 [:##k :down_arrow ["s-layer" 0]]
-                 [:##i :up_arrow ["s-layer" 0]]
-                 [:##u :home ["s-layer" 0]]
-                 [:##o :end ["s-layer" 0]]
-                 [:##s ["s-layer" 1] nil {:afterup ["s-layer" 0]}]
-                 [:##a ["a-layer" 1] nil {:afterup ["a-layer" 0]}]
-                 [:##1 :f1 [["s-layer" 0] ["a-layer" 0]]]
-                 [:##2 :f2 [["s-layer" 0] ["a-layer" 0]]]
-                 [:##3 :f3 [["s-layer" 0] ["a-layer" 0]]]
-                 [:##4 :f4 [["s-layer" 0] ["a-layer" 0]]]
-                 [:##5 :f5 [["s-layer" 0] ["a-layer" 0]]]
-                 [:##6 :!Sf6 [["s-layer" 0] ["a-layer" 0]]]
-                 [:##7 :f7 [["s-layer" 0] ["a-layer" 0]]]
-                 [:##8 :f8 [["s-layer" 0] ["a-layer" 0]]]
-                 [:##9 :f9 [["s-layer" 0] ["a-layer" 0]]]
-                 [:##0 :f10 [["s-layer" 0] ["a-layer" 0]]]]}
-        {:des "capskey + a",
-         :rules [[:##j :!Oleft_arrow ["a-layer" 1]]
-                 [:##k :down_arrow ["a-layer" 1]]
-                 [:##i :up_arrow ["a-layer" 1]]
-                 [:##l :!Oright_arrow ["a-layer" 1]]]}
+                 [:##j :left_arrow]
+                 [:##l :right_arrow]
+                 [:##k :down_arrow]
+                 [:##i :up_arrow]
+                 [:##u :home]
+                 [:##o :end]
+                 [:##1 :f1]
+                 [:##2 :f2]
+                 [:##3 :f3]
+                 [:##4 :f4]
+                 [:##5 :f5]
+                 [:##6 :!Sf6]
+                 [:##7 :f7]
+                 [:##8 :f8]
+                 [:##9 :f9]
+                 [:##0 :f10]]}
+        {:des "s_mode",
+         :rules [:a_mode [:##j :!Oleft_arrow]
+                 [:##k :down_arrow]
+                 [:##i :up_arrow]
+                 [:##l :!Oright_arrow]]}
         {:des "swap win and control",
          :rules [[:##left_option :left_command [:anne]]
                  [:##left_command :left_option [:anne]]]}
-        {:des "capskey + s",
-         :rules [[:##j :!Sleft_arrow ["s-layer" 1]]
-                 [:##k :!Sdown_arrow ["s-layer" 1]]
-                 [:##i :!Sup_arrow ["s-layer" 1]]
-                 [:##l :!Sright_arrow ["s-layer" 1]]
-                 [:##u :!Shome ["s-layer" 1]]
-                 [:##o :!Send ["s-layer" 1]]]}
+        {:des "s_mode",
+         :rules [:s_mode [:##j :!Sleft_arrow]
+                 [:##k :!Sdown_arrow]
+                 [:##i :!Sup_arrow]
+                 [:##l :!Sright_arrow]
+                 [:##u :!Shome]
+                 [:##o :!Send]]}
+        {:des "o_mode",
+         :rules [:o_mode [:v [:open "/Applications/Visual Studio Code.app"]]
+                 [:c [:open "/Applications/ClickUp.app"]]
+                 [:a [:open "/Applications/Arc.app"]]
+                 [:f [:open "/Applications/Ferdium.app"]]
+                 [:s [:open "/Applications/Spark Desktop.app"]]
+                 [:r [:open "/Applications/ForkLift.app"]]
+                 [:w [:open "/Applications/Warp.app"]]]}
  ;;       {:des "test sound",
 ;;         :rules [[:##j [[:soundA] :j]]]}]}
         ]}
