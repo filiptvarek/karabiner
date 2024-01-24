@@ -1,0 +1,68 @@
+{:layers {:caps_lock-mode {:key :caps_lock}},
+ :devices {:anne [{:vendor_id 13 :product_id 61664}]}
+ :templates {;..........................................................................................................................
+             :open "open \"%s\""
+             :wait "sleep 250"
+ 		;* Sounds and Audio Feedback 🔈🔉🔊🔇🔔📣📢🎵💥
+             :🔊 "afplay /System/Library/PrivateFrameworks/ScreenReader.framework/Versions/A/Resources/Sounds/DrawerOpening.aiff"
+             :🔉 "afplay /System/Library/PrivateFrameworks/ScreenReader.framework/Versions/A/Resources/Sounds/DrawerClosing.aiff"
+             :🔈 "afplay /System/Library/PrivateFrameworks/ScreenReader.framework/Versions/A/Resources/Sounds/DrillOut.aiff"
+             :🔇 "afplay /System/Library/PrivateFrameworks/ScreenReader.framework/Versions/A/Resources/Sounds/DrillIn.aiff"
+             :beep "afplay /System/Library/PrivateFrameworks/ScreenReader.framework/Versions/A/Resources/Sounds/WindowActivated.aiff"
+             :soundA "afplay /System/Library/PrivateFrameworks/ScreenReader.framework/Versions/A/Resources/Sounds/DrawerOpening.aiff"
+             :soundB "afplay /System/Library/PrivateFrameworks/ScreenReader.framework/Versions/A/Resources/Sounds/DrawerClosing.aiff"
+             :soundOn "afplay /System/Library/PrivateFrameworks/ScreenReader.framework/Versions/A/Resources/Sounds/DrillOut.aiff"
+             :soundOff "afplay /System/Library/PrivateFrameworks/ScreenReader.framework/Versions/A/Resources/Sounds/DrillIn.aiff"}
+ :main [{:des "capskey",
+         :rules [:caps_lock-mode
+                 [:##j :left_arrow [["s-layer" 0] ["a-layer" 0]]]
+                 [:##l :right_arrow [["s-layer" 0] ["a-layer" 0]]]
+                 [:##k :down_arrow ["s-layer" 0]]
+                 [:##i :up_arrow ["s-layer" 0]]
+                 [:##u :home ["s-layer" 0]]
+                 [:##o :end ["s-layer" 0]]
+                 [:##s ["s-layer" 1] nil {:afterup ["s-layer" 0]}]
+                 [:##a ["a-layer" 1] nil {:afterup ["a-layer" 0]}]
+                 [:##1 :f1 [["s-layer" 0] ["a-layer" 0]]]
+                 [:##2 :f2 [["s-layer" 0] ["a-layer" 0]]]
+                 [:##3 :f3 [["s-layer" 0] ["a-layer" 0]]]
+                 [:##4 :f4 [["s-layer" 0] ["a-layer" 0]]]
+                 [:##5 :f5 [["s-layer" 0] ["a-layer" 0]]]
+                 [:##6 :!Sf6 [["s-layer" 0] ["a-layer" 0]]]
+                 [:##7 :f7 [["s-layer" 0] ["a-layer" 0]]]
+                 [:##8 :f8 [["s-layer" 0] ["a-layer" 0]]]
+                 [:##9 :f9 [["s-layer" 0] ["a-layer" 0]]]
+                 [:##0 :f10 [["s-layer" 0] ["a-layer" 0]]]]}
+        {:des "capskey + a",
+         :rules [[:##j :!Oleft_arrow ["a-layer" 1]]
+                 [:##k :down_arrow ["a-layer" 1]]
+                 [:##i :up_arrow ["a-layer" 1]]
+                 [:##l :!Oright_arrow ["a-layer" 1]]]}
+        {:des "swap win and control",
+         :rules [[:##left_option :left_command [:anne]]
+                 [:##left_command :left_option [:anne]]]}
+        {:des "capskey + s",
+         :rules [[:##j :!Sleft_arrow ["s-layer" 1]]
+                 [:##k :!Sdown_arrow ["s-layer" 1]]
+                 [:##i :!Sup_arrow ["s-layer" 1]]
+                 [:##l :!Sright_arrow ["s-layer" 1]]
+                 [:##u :!Shome ["s-layer" 1]]
+                 [:##o :!Send ["s-layer" 1]]]}
+ ;;       {:des "test sound",
+;;         :rules [[:##j [[:soundA] :j]]]}]}
+        ]}
+
+    ;; !  | means mandatory
+    ;; #  | means optional
+    ;; C  | left_command
+    ;; T  | left_control
+    ;; O  | left_option
+    ;; S  | left_shift
+    ;; F  | fn
+    ;; Q  | right_command
+    ;; W  | right_control
+    ;; E  | right_option
+    ;; R  | right_shift
+    ;; P  | caps_lock
+    ;; !! | mandatory command + control + optional + shift (hyper)
+    ;; ## | optional any

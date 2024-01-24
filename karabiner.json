@@ -1,0 +1,675 @@
+{
+  "global" : {
+    "show_in_menu_bar" : false
+  },
+  "profiles" : [ {
+    "name" : "Default",
+    "complex_modifications" : {
+      "parameters" : {
+        "basic.simultaneous_threshold_milliseconds" : 50,
+        "basic.to_delayed_action_delay_milliseconds" : 500,
+        "basic.to_if_alone_timeout_milliseconds" : 1000,
+        "basic.to_if_held_down_threshold_milliseconds" : 500
+      },
+      "rules" : [ {
+        "description" : "Auto generated layer conditions",
+        "manipulators" : [ {
+          "type" : "basic",
+          "to" : [ {
+            "set_variable" : {
+              "name" : "caps_lock-mode",
+              "value" : 1
+            }
+          } ],
+          "from" : {
+            "key_code" : "caps_lock"
+          },
+          "to_after_key_up" : [ {
+            "set_variable" : {
+              "name" : "caps_lock-mode",
+              "value" : 0
+            }
+          } ],
+          "to_if_alone" : [ {
+            "key_code" : "caps_lock"
+          } ]
+        } ]
+      }, {
+        "description" : "capskey",
+        "manipulators" : [ {
+          "from" : {
+            "key_code" : "j",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "left_arrow"
+          } ],
+          "conditions" : [ {
+            "name" : "caps_lock-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          }, {
+            "name" : "s-layer",
+            "value" : 0,
+            "type" : "variable_if"
+          }, {
+            "name" : "a-layer",
+            "value" : 0,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "l",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "right_arrow"
+          } ],
+          "conditions" : [ {
+            "name" : "caps_lock-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          }, {
+            "name" : "s-layer",
+            "value" : 0,
+            "type" : "variable_if"
+          }, {
+            "name" : "a-layer",
+            "value" : 0,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "k",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "down_arrow"
+          } ],
+          "conditions" : [ {
+            "name" : "caps_lock-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          }, {
+            "name" : "s-layer",
+            "value" : 0,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "i",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "up_arrow"
+          } ],
+          "conditions" : [ {
+            "name" : "caps_lock-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          }, {
+            "name" : "s-layer",
+            "value" : 0,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "u",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "home"
+          } ],
+          "conditions" : [ {
+            "name" : "caps_lock-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          }, {
+            "name" : "s-layer",
+            "value" : 0,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "o",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "end"
+          } ],
+          "conditions" : [ {
+            "name" : "caps_lock-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          }, {
+            "name" : "s-layer",
+            "value" : 0,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "to_after_key_up" : [ {
+            "set_variable" : {
+              "name" : "s-layer",
+              "value" : 0
+            }
+          } ],
+          "from" : {
+            "key_code" : "s",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "s-layer",
+              "value" : 1
+            }
+          } ],
+          "conditions" : [ {
+            "name" : "caps_lock-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "to_after_key_up" : [ {
+            "set_variable" : {
+              "name" : "a-layer",
+              "value" : 0
+            }
+          } ],
+          "from" : {
+            "key_code" : "a",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "a-layer",
+              "value" : 1
+            }
+          } ],
+          "conditions" : [ {
+            "name" : "caps_lock-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "1",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "f1"
+          } ],
+          "conditions" : [ {
+            "name" : "caps_lock-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          }, {
+            "name" : "s-layer",
+            "value" : 0,
+            "type" : "variable_if"
+          }, {
+            "name" : "a-layer",
+            "value" : 0,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "2",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "f2"
+          } ],
+          "conditions" : [ {
+            "name" : "caps_lock-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          }, {
+            "name" : "s-layer",
+            "value" : 0,
+            "type" : "variable_if"
+          }, {
+            "name" : "a-layer",
+            "value" : 0,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "3",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "f3"
+          } ],
+          "conditions" : [ {
+            "name" : "caps_lock-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          }, {
+            "name" : "s-layer",
+            "value" : 0,
+            "type" : "variable_if"
+          }, {
+            "name" : "a-layer",
+            "value" : 0,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "4",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "f4"
+          } ],
+          "conditions" : [ {
+            "name" : "caps_lock-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          }, {
+            "name" : "s-layer",
+            "value" : 0,
+            "type" : "variable_if"
+          }, {
+            "name" : "a-layer",
+            "value" : 0,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "5",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "f5"
+          } ],
+          "conditions" : [ {
+            "name" : "caps_lock-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          }, {
+            "name" : "s-layer",
+            "value" : 0,
+            "type" : "variable_if"
+          }, {
+            "name" : "a-layer",
+            "value" : 0,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "6",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "f6",
+            "modifiers" : [ "left_shift" ]
+          } ],
+          "conditions" : [ {
+            "name" : "caps_lock-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          }, {
+            "name" : "s-layer",
+            "value" : 0,
+            "type" : "variable_if"
+          }, {
+            "name" : "a-layer",
+            "value" : 0,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "7",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "f7"
+          } ],
+          "conditions" : [ {
+            "name" : "caps_lock-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          }, {
+            "name" : "s-layer",
+            "value" : 0,
+            "type" : "variable_if"
+          }, {
+            "name" : "a-layer",
+            "value" : 0,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "8",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "f8"
+          } ],
+          "conditions" : [ {
+            "name" : "caps_lock-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          }, {
+            "name" : "s-layer",
+            "value" : 0,
+            "type" : "variable_if"
+          }, {
+            "name" : "a-layer",
+            "value" : 0,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "9",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "f9"
+          } ],
+          "conditions" : [ {
+            "name" : "caps_lock-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          }, {
+            "name" : "s-layer",
+            "value" : 0,
+            "type" : "variable_if"
+          }, {
+            "name" : "a-layer",
+            "value" : 0,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "0",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "f10"
+          } ],
+          "conditions" : [ {
+            "name" : "caps_lock-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          }, {
+            "name" : "s-layer",
+            "value" : 0,
+            "type" : "variable_if"
+          }, {
+            "name" : "a-layer",
+            "value" : 0,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
+        "description" : "capskey + a",
+        "manipulators" : [ {
+          "from" : {
+            "key_code" : "j",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "left_arrow",
+            "modifiers" : [ "left_option" ]
+          } ],
+          "conditions" : [ {
+            "name" : "a-layer",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "k",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "down_arrow"
+          } ],
+          "conditions" : [ {
+            "name" : "a-layer",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "i",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "up_arrow"
+          } ],
+          "conditions" : [ {
+            "name" : "a-layer",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "l",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "right_arrow",
+            "modifiers" : [ "left_option" ]
+          } ],
+          "conditions" : [ {
+            "name" : "a-layer",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
+        "description" : "swap win and control",
+        "manipulators" : [ {
+          "from" : {
+            "key_code" : "left_option",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "left_command"
+          } ],
+          "conditions" : [ {
+            "identifiers" : [ {
+              "vendor_id" : 13,
+              "product_id" : 61664
+            } ],
+            "type" : "device_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "left_command",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "left_option"
+          } ],
+          "conditions" : [ {
+            "identifiers" : [ {
+              "vendor_id" : 13,
+              "product_id" : 61664
+            } ],
+            "type" : "device_if"
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
+        "description" : "capskey + s",
+        "manipulators" : [ {
+          "from" : {
+            "key_code" : "j",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "left_arrow",
+            "modifiers" : [ "left_shift" ]
+          } ],
+          "conditions" : [ {
+            "name" : "s-layer",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "k",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "down_arrow",
+            "modifiers" : [ "left_shift" ]
+          } ],
+          "conditions" : [ {
+            "name" : "s-layer",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "i",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "up_arrow",
+            "modifiers" : [ "left_shift" ]
+          } ],
+          "conditions" : [ {
+            "name" : "s-layer",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "l",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "right_arrow",
+            "modifiers" : [ "left_shift" ]
+          } ],
+          "conditions" : [ {
+            "name" : "s-layer",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "u",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "home",
+            "modifiers" : [ "left_shift" ]
+          } ],
+          "conditions" : [ {
+            "name" : "s-layer",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "o",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "end",
+            "modifiers" : [ "left_shift" ]
+          } ],
+          "conditions" : [ {
+            "name" : "s-layer",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        } ]
+      } ]
+    }
+  } ]
+}
